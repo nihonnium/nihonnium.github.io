@@ -24,8 +24,6 @@
   button:hover { opacity: 0.8; }
   input, textarea { width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 16px; border: 1px solid #E5E5E5; border-radius: 8px; background-color: #FFF; box-sizing: border-box; font-family: inherit; }
 
-
-  /* Profil Fotoğrafı ve Hero Düzeni İçin Eklenenler */
   .hero-container {
     display: flex;
     align-items: center;
@@ -37,14 +35,13 @@
   .profile-pic {
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* Fotoğrafı yuvarlak yapar */
-    object-fit: cover; /* En-boy oranını bozmadan sığdırır */
-    border: 4px solid #D4C4B7; /* Projelerinizdeki sol çizgiyle aynı renk çerçeve */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sitenize uygun hafif bir gölge */
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid #D4C4B7; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
     flex-shrink: 0;
   }
   
-  /* Telefon ekranları için responsive (uyumlu) tasarım */
   @media (max-width: 700px) {
     .hero-container {
       flex-direction: column;
