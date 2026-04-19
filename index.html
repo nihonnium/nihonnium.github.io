@@ -67,6 +67,11 @@
       width: 160px;
       height: 160px;
     }
+    body { padding: 1rem; }
+    h1 { font-size: 2rem; }
+    nav a { margin-right: 10px; font-size: 0.85rem; }
+    .timeline-container { flex-direction: column; gap: 10px; }
+    .timeline-line { display: none; }
   }  
     /* --- TIMELINE DIARY STYLES --- */
   
@@ -137,6 +142,22 @@
     font-size: 0.9rem; 
     color: #8E7D71; 
   }
+
+  #back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #8E7D71;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: opacity 0.3s;
+  z-index: 999;
+}
+#back-to-top:hover { opacity: 0.8; }
   </style>
 </head>
 <body>
@@ -298,15 +319,16 @@
 
       <form id="contact-form">
         <div>
-          <label for="name">Your Name</label>
+          <label for="name">Your Name<span style="color:#DC2626;">*</span></label>
           <input type="text" id="name" name="name" required placeholder="Jane Smith" />
         </div>
         <div>
-          <label for="email">Your Email</label>
+          <label for="email">Your Email<span style="color:#DC2626;">*</span></label>
           <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+          <p id="email-error" style="color:#DC2626; margin-top:-12px; font-size:0.9rem;"></p>
         </div>
         <div>
-          <label for="message">Message</label>
+          <label for="message">Message<span style="color:#DC2626;">*</span></label>
           <textarea id="message" name="message" required placeholder="Say hello..." rows="5"></textarea>
         </div>
         <button type="submit" id="submit-btn">Send Message</button>
@@ -321,6 +343,7 @@
   </main>
   <footer>
     <p>&copy; 2026 Nihan Dilay Boz. All rights reserved.</p>
+    <a href="#" id="back-to-top" title="Back to top">↑</a>
   </footer>
 
   <script>
@@ -411,6 +434,16 @@
         btn.textContent = "Send Message";
       }
     });
+  document.getElementById("email").addEventListener("blur", function () {
+  const emailVal = this.value.trim();
+  const emailError = document.getElementById("email-error");
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailVal && !emailPattern.test(emailVal)) {
+    emailError.textContent = "Please enter a valid email address (e.g. jane@example.com).";
+  } else {
+    emailError.textContent = "";
+  }
+});
 </script>
   
 </body>
