@@ -53,6 +53,67 @@
       margin-bottom: 1rem;
     }
   }  
+    /* --- TIMELINE DIARY STYLES --- */
+  
+  /* Main container for the timeline */
+  .timeline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 10px 0;
+  }
+
+  /* The horizontal line behind the dates */
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #E5E5E5; /* Matches your header border color */
+    z-index: 1;
+  }
+
+  /* Individual date buttons */
+  .timeline-btn {
+    position: relative;
+    z-index: 2;
+    background-color: #FAF9F6; /* Matches your body background */
+    border: 2px solid #8E7D71; /* Matches your theme color */
+    color: #555;
+    padding: 8px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover and active states for buttons */
+  .timeline-btn:hover, .timeline-btn.active {
+    background-color: #8E7D71;
+    color: white;
+  }
+
+  /* Hide diary content by default */
+  .diary-content {
+    display: none;
+    animation: fadeIn 0.5s; /* Smooth transition effect */
+  }
+
+  /* Show only the active diary content */
+  .diary-content.active-content {
+    display: block;
+  }
+
+  /* Fade-in animation logic */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   </style>
 </head>
 <body>
@@ -135,30 +196,37 @@
     </section>
 
 
-  <section id="production-diary">
+<section id="production-diary">
       <h2>Weekly Production Diary</h2>
-      <p><strong>Date:</strong> 10 March 2026</p>
       
-      <p>
-        This week, I focused on learning the connection between biological intelligence and machine learning. I have been analyzing the paper <em>"Biological Underpinnings for Lifelong Learning Machines"</em> to better understand how neural plasticity can be modeled in AI.
-      </p>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <button class="timeline-btn active" onclick="showDiary('diary-week1', this)">10 March 2026</button>
+        <button class="timeline-btn" onclick="showDiary('diary-week2', this)">17 March 2026</button>
+      </div>
 
-      <p>
-        <strong>I am most happy with</strong> how this research directly feeds into my internship. Understanding how biological systems protect old memories while acquiring new ones provides a solid theoretical foundation for my work on "catastrophic forgetting" in robotics.
-      </p>
+      <div id="diary-week1" class="diary-content active-content">
+        <p>
+          This week, I focused on learning the connection between biological intelligence and machine learning. I have been analyzing the paper <em>"Biological Underpinnings for Lifelong Learning Machines"</em> to better understand how neural plasticity can be modeled in AI.
+        </p>
+        <p>
+          <strong>I am most happy with</strong> how this research directly feeds into my internship. Understanding how biological systems protect old memories while acquiring new ones provides a solid theoretical foundation for my work on "catastrophic forgetting" in robotics.
+        </p>
+        <p>
+          <strong>I found it difficult to</strong> grasp some of the more complex neurobiological mechanisms, such as synaptic scaling and neuromodulation, and how they can be efficiently translated into computational algorithms without immense overhead.
+        </p>
+        <p>
+          <strong>From this work, I learned</strong> that lifelong learning is not just about data retention, but about dynamic stability. I learned that mechanisms like "synaptic consolidation" are key to building more robust autonomous systems that don't reset their knowledge when exposed to new environments.
+        </p>
+        <p>
+          <strong>Next time I want to improve</strong> by implementing a small Python simulation of a simple EWC (Elastic Weight Consolidation) algorithm, which is one of the practical applications of these biological theories in machine learning.
+        </p>
+      </div>
 
-      <p>
-        <strong>I found it difficult to</strong> grasp some of the more complex neurobiological mechanisms, such as synaptic scaling and neuromodulation, and how they can be efficiently translated into computational algorithms without immense overhead.
-      </p>
+      <div id="diary-week2" class="diary-content">
+        <p>Notes for 17 March 2026 will go here. You can add your paragraphs just like the first week.</p>
+      </div>
 
-      <p>
-        <strong>From this work, I learned</strong> that lifelong learning is not just about data retention, but about dynamic stability. I learned that mechanisms like "synaptic consolidation" are key to building more robust autonomous systems that don't reset their knowledge when exposed to new environments.
-      </p>
-
-      <p>
-        <strong>Next time I want to improve</strong> by implementing a small Python simulation of a simple EWC (Elastic Weight Consolidation) algorithm, which is one of the practical applications of these biological theories in machine learning.
-      </p>
-    </section>
     </section>
     <section id="contact">
   <h2>Get In Touch</h2>
@@ -192,6 +260,29 @@
       <p><em>Based in York, United Kingdom</em></p>
     </section>
   </main>
+
+  <script>
+  // ── Timeline Diary Logic ──────────────────────────────────────
+  function showDiary(diaryId, clickedButton) {
+    // 1. Select all diary content sections and hide them
+    let contents = document.querySelectorAll('.diary-content');
+    contents.forEach(function(content) {
+      content.classList.remove('active-content');
+    });
+
+    // 2. Remove the 'active' styling from all timeline buttons
+    let buttons = document.querySelectorAll('.timeline-btn');
+    buttons.forEach(function(btn) {
+      btn.classList.remove('active');
+    });
+
+    // 3. Display the specific diary content that matches the clicked ID
+    document.getElementById(diaryId).classList.add('active-content');
+    
+    // 4. Add 'active' styling to the clicked button
+    clickedButton.classList.add('active');
+  }
+</script>
 
 <script>
   // ── Supabase config 
