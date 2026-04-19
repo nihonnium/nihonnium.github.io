@@ -41,6 +41,17 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
     flex-shrink: 0;
   }
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .profile-links {
+    margin-top: 15px;
+    font-size: 1rem;
+    text-align: center;
+  }
   
   @media (max-width: 700px) {
     .hero-container {
@@ -50,7 +61,6 @@
     .profile-pic {
       width: 160px;
       height: 160px;
-      margin-bottom: 1rem;
     }
   }  
     /* --- TIMELINE DIARY STYLES --- */
@@ -131,22 +141,30 @@
   </header>
 
   <main>
-<section id="hero" class="hero-container">
-      <img src="profil.jpg" alt="Nihan Dilay Boz" class="profile-pic">
+    <section id="hero" class="hero-container">
+      
+      <div class="profile-section">
+        <img src="profil.jpg" alt="Nihan Dilay Boz" class="profile-pic">
+        <p class="profile-links"><a href="#projects">View my work</a> | <a href="#contact">Get in touch</a></p>
+      </div>
       
       <div class="hero-text">
         <h2>Hello, I’m Nihan</h2>
         <p><strong>First-year Computer Science student</strong> at the University of York with a background in robotics, leadership, and social innovation.</p>
-        <p>Currently serving as the <strong>Treasurer for The 93% Club York</strong> and <strong>Course Representative</strong>.</p>
+        <p>Currently working as an <strong>Undergraduate AI Research Intern</strong> under the supervision of Dr. Pengcheng Liu, while also serving as the <strong>Treasurer for The 93% Club York</strong> and <strong>Course Representative</strong>.</p>
         <p>I combine technical skills in Python and Java with creative problem-solving, aiming to develop sustainable solutions using AI and data analysis.</p>
-        <p><a href="#projects">View my work</a> | <a href="#contact">Get in touch</a></p>
       </div>
-</section>
+
+    </section>
 
     <section id="about">
       <h2>About me</h2>
       <p>I am passionate about the intersection of technology and social impact. My journey began with a focus on robotics and science in high school, where I graduated as the 2nd best in my class.</p>
-      <p>At university, I have taken on active leadership roles. As <strong>Treasurer</strong>, I manage budgets and ensure financial transparency for a major student society. As a <strong>Course Representative</strong>, I bridge the gap between students and academic staff.</p>
+      
+      <p>Currently, I am advancing my research skills as an <strong>Undergraduate AI Research Intern</strong> under Dr. Pengcheng Liu, exploring lifelong learning frameworks in robotics for Search and Rescue (SAR) systems.</p>
+      
+      <p>Alongside my academic research, I have taken on active leadership roles. As <strong>Treasurer</strong>, I manage budgets and ensure financial transparency for a major student society. As a <strong>Course Representative</strong>, I bridge the gap between students and academic staff.</p>
+      
       <p>I am also a graduate of the <strong>YetGen 21st Century Skills training program</strong>, where I developed competencies in teamwork, innovation, and presentation skills aligned with UN Sustainable Development Goals.</p>
     </section>
 
