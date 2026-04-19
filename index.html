@@ -129,6 +129,14 @@
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  footer { 
+    text-align: center; 
+    padding: 2rem 0; 
+    margin-top: 3rem; 
+    border-top: 1px solid #E5E5E5; 
+    font-size: 0.9rem; 
+    color: #8E7D71; 
+  }
   </style>
 </head>
 <body>
@@ -225,8 +233,8 @@
       <div class="timeline-container">
         <div class="timeline-line"></div>
         <button class="timeline-btn active" onclick="showDiary('diary-week1', this)">17 March 2026</button>
-        <button class="timeline-btn active" onclick="showDiary('diary-week2', this)">31 March 2026</button>
-        <button class="timeline-btn active" onclick="showDiary('diary-week3', this)">14 April 2026</button>
+        <button class="timeline-btn" onclick="showDiary('diary-week2', this)">31 March 2026</button>
+        <button class="timeline-btn" onclick="showDiary('diary-week3', this)">14 April 2026</button>
       </div>
 
       <div id="diary-week1" class="diary-content active-content">
@@ -285,38 +293,36 @@
       </div>
 
     </section>
-    <section id="contact">
-  <h2>Get In Touch</h2>
-  <form id="contact-form">
-    <div>
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required
-             placeholder="Jane Smith" />
-    </div>
-    <div>
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required
-             placeholder="jane@example.com" />
-    </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required
-                placeholder="Say hello..." rows="5"></textarea>
-    </div>
-    <button type="submit" id="submit-btn">Send Message</button>
-    <p id="form-status"></p>
-  </form>
-    </section>
-    
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nihan-dilay-boz">linkedin.com/in/nihan-dilay-boz</a></p>
-        <p>💻 GitHub: <a href="https://github.com/nihonnium">github.com/nihonnium</a></p>
+   <section id="contact">
+      <h2>Contact & Get In Touch</h2>
+      
+      <div class="contact-info" style="margin-bottom: 2rem;">
+        <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nihan-dilay-boz" target="_blank">linkedin.com/in/nihan-dilay-boz</a></p>
+        <p>💻 GitHub: <a href="https://github.com/nihonnium" target="_blank">github.com/nihonnium</a></p>
+        <p><em>Based in York, United Kingdom</em></p>
       </div>
-      <p><em>Based in York, United Kingdom</em></p>
+
+      <form id="contact-form">
+        <div>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+        </div>
+        <div>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Say hello..." rows="5"></textarea>
+        </div>
+        <button type="submit" id="submit-btn">Send Message</button>
+        <p id="form-status"></p>
+      </form>
     </section>
   </main>
+  <footer>
+    <p>&copy; 2026 Nihan Dilay Boz. All rights reserved.</p>
+  </footer>
 
   <script>
   // ── Timeline Diary Logic ──────────────────────────────────────
